@@ -1,8 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using personapi_dotnet.Models;
 using personapi_dotnet.Models.Entities;
 using personapi_dotnet.Models.Interfaces;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace personapi_dotnet.Controllers.Views
 {
@@ -15,50 +14,71 @@ namespace personapi_dotnet.Controllers.Views
             _personaRepository = personaRepository;
         }
 
-        public IActionResult Index()
+        // GET: /Persona/Index
+        public async Task<IActionResult> Index()
         {
-            var personas = _personaRepository.GetAll();
+            var personas = await _personaRepository.GetAllAsync(); // Usa el método asíncrono
             return View(personas);
         }
 
+        // GET: /Persona/Create
         public IActionResult Create()
         {
             return View();
         }
 
+        // POST: /Persona/Create
         [HttpPost]
-        public IActionResult Create(Persona persona)
+        public async Task<IActionResult> Create(Persona persona)
         {
             if (ModelState.IsValid)
             {
-                _personaRepository.Add(persona);
+                await _personaRepository.AddAsync(persona); // Usa el método asíncrono
                 return RedirectToAction(nameof(Index));
             }
             return View(persona);
         }
 
-        public IActionResult Edit(int id)
+        // GET: /Persona/Edit/{id}
+        public async Task<IActionResult> Edit(int id)
         {
-            var persona = _personaRepository.GetById(id);
+            var persona = await _personaRepository.GetByIdAsync(id); // Usa el método asíncrono
+            if (persona == null)
+            {
+                return NotFound();
+            }
             return View(persona);
         }
 
+        // POST: /Persona/Edit
         [HttpPost]
-        public IActionResult Edit(Persona persona)
+        public async Task<IActionResult> Edit(Persona persona)
         {
             if (ModelState.IsValid)
             {
-                _personaRepository.Update(persona);
+                await _personaRepository.UpdateAsync(persona); // Usa el método asíncrono
                 return RedirectToAction(nameof(Index));
             }
             return View(persona);
         }
 
-        public IActionResult Delete(int id)
+        // GET: /Persona/Delete/{id}
+        public async Task<IActionResult> Delete(int id)
         {
-            _personaRepository.Delete(id);
+            var persona = await _personaRepository.GetByIdAsync(id); // Usa el método asíncrono
+            if (persona == null)
+            {
+                return NotFound();
+            }
+            return View(persona);
+        }
+
+        // POST: /Persona/Delete/{id}
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            await _personaRepository.DeleteAsync(id); // Usa el método asíncrono
             return RedirectToAction(nameof(Index));
         }
     }
 }
-

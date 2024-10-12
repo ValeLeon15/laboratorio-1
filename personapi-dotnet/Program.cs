@@ -1,7 +1,15 @@
+using personapi_dotnet.Models.Entities;
+using Microsoft.EntityFrameworkCore;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<PersonaDbContext>(Options =>
+{
+    Options.UseSqlServer(builder.Configuration.GetConnectionString("PersonaDbContext"));
+});
 
 // Agregar SwaggerGen
 builder.Services.AddEndpointsApiExplorer(); //permite a swagger explorar los endpoints de la aplicación

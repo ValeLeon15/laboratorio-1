@@ -1,15 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using personapi_dotnet.Models.Entities;
 using personapi_dotnet.Models.Interfaces;
+using personapi_dotnet.Repositories;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace personapi_dotnet.Controllers
 {
     public class EstudioController : Controller
     {
-        private readonly IEstudiosRepository _estudioRepository;
+        private readonly IEstudioRepository _estudioRepository;
 
-        public EstudioController(IEstudiosRepository estudioRepository)
+        public EstudioController(IEstudioRepository estudioRepository)
         {
             _estudioRepository = estudioRepository;
         }
@@ -17,7 +19,7 @@ namespace personapi_dotnet.Controllers
         // GET: /Estudio/Index
         public async Task<IActionResult> Index()
         {
-            var estudios = await _estudioRepository.GetAllAsync(); // Obtiene todos los estudios
+            var estudios = await _estudioRepository.GetAllAsync();  // Obtiene todos los estudios de manera asíncrona
             return View(estudios);
         }
 
@@ -33,7 +35,7 @@ namespace personapi_dotnet.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _estudioRepository.AddAsync(estudio); // Añade un nuevo estudio
+                await _estudioRepository.AddAsync(estudio);  // Añade un nuevo estudio de manera asíncrona
                 return RedirectToAction(nameof(Index));
             }
             return View(estudio);
@@ -42,7 +44,7 @@ namespace personapi_dotnet.Controllers
         // GET: /Estudio/Edit/{id}
         public async Task<IActionResult> Edit(int id)
         {
-            var estudio = await _estudioRepository.GetByIdAsync(id); // Obtiene el estudio por ID
+            var estudio = await _estudioRepository.GetByIdAsync(id);  // Obtiene el estudio por su ID
             if (estudio == null)
             {
                 return NotFound();
@@ -56,7 +58,7 @@ namespace personapi_dotnet.Controllers
         {
             if (ModelState.IsValid)
             {
-                await _estudioRepository.UpdateAsync(estudio); // Actualiza el estudio
+                await _estudioRepository.UpdateAsync(estudio);  // Actualiza el estudio
                 return RedirectToAction(nameof(Index));
             }
             return View(estudio);
@@ -65,7 +67,7 @@ namespace personapi_dotnet.Controllers
         // GET: /Estudio/Delete/{id}
         public async Task<IActionResult> Delete(int id)
         {
-            var estudio = await _estudioRepository.GetByIdAsync(id); // Obtiene el estudio por ID
+            var estudio = await _estudioRepository.GetByIdAsync(id);  // Obtiene el estudio por su ID para eliminarlo
             if (estudio == null)
             {
                 return NotFound();
@@ -77,7 +79,7 @@ namespace personapi_dotnet.Controllers
         [HttpPost, ActionName("Delete")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            await _estudioRepository.DeleteAsync(id); // Elimina el estudio
+            await _estudioRepository.DeleteAsync(id);  // Elimina el estudio de manera asíncrona
             return RedirectToAction(nameof(Index));
         }
     }

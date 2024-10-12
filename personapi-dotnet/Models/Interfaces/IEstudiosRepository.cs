@@ -6,7 +6,7 @@ namespace personapi_dotnet.Models.Interfaces
 {
     public interface IEstudiosRepository
     {
-        Task<IEnumerable<Estudios>> GetAllAsync();
+        Task<IEnumerable<Estudio>> GetAllAsync();
         Task<Estudios> GetByIdAsync(int id);
         Task AddAsync(Estudios estudios);
         Task UpdateAsync(Estudios estudios);

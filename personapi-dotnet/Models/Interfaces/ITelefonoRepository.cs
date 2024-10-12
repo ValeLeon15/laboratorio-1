@@ -11,5 +11,6 @@ namespace personapi_dotnet.Models.Interfaces
         Task AddAsync(Telefono telefono);
         Task UpdateAsync(Telefono telefono);
         Task DeleteAsync(string numero);
+        string? GetAll();
     }
 }

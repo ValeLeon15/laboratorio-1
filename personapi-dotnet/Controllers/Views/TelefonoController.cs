@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using personapi_dotnet.Models;
 using personapi_dotnet.Models.Entities;
 using personapi_dotnet.Models.Interfaces;
+using System.Threading.Tasks;
 
 namespace personapi_dotnet.Controllers
 {
@@ -14,48 +14,70 @@ namespace personapi_dotnet.Controllers
             _telefonoRepository = telefonoRepository;
         }
 
-        public IActionResult Index()
+        // GET: /Telefono/Index
+        public async Task<IActionResult> Index()
         {
-            var telefonos = _telefonoRepository.GetAll();
+            var telefonos = await _telefonoRepository.GetAllAsync(); // Usa el método asíncrono para obtener todos los teléfonos
             return View(telefonos);
         }
 
+        // GET: /Telefono/Create
         public IActionResult Create()
         {
             return View();
         }
 
+        // POST: /Telefono/Create
         [HttpPost]
-        public IActionResult Create(Telefono telefono)
+        public async Task<IActionResult> Create(Telefono telefono)
         {
             if (ModelState.IsValid)
             {
-                _telefonoRepository.Add(telefono);
+                await _telefonoRepository.AddAsync(telefono); // Usa el método asíncrono para añadir el teléfono
                 return RedirectToAction(nameof(Index));
             }
             return View(telefono);
         }
 
-        public IActionResult Edit(string num)
+        // GET: /Telefono/Edit/{num}
+        public async Task<IActionResult> Edit(string num)
         {
-            var telefono = _telefonoRepository.GetById(num);
+            var telefono = await _telefonoRepository.GetByIdAsync(num); // Usa el método asíncrono para obtener el teléfono por número
+            if (telefono == null)
+            {
+                return NotFound();
+            }
             return View(telefono);
         }
 
+        // POST: /Telefono/Edit
         [HttpPost]
-        public IActionResult Edit(Telefono telefono)
+        public async Task<IActionResult> Edit(Telefono telefono)
         {
             if (ModelState.IsValid)
             {
-                _telefonoRepository.Update(telefono);
+                await _telefonoRepository.UpdateAsync(telefono); // Usa el método asíncrono para actualizar el teléfono
                 return RedirectToAction(nameof(Index));
             }
             return View(telefono);
         }
 
-        public IActionResult Delete(string num)
+        // GET: /Telefono/Delete/{num}
+        public async Task<IActionResult> Delete(string num)
         {
-            _telefonoRepository.Delete(num);
+            var telefono = await _telefonoRepository.GetByIdAsync(num); // Usa el método asíncrono para obtener el teléfono por número
+            if (telefono == null)
+            {
+                return NotFound();
+            }
+            return View(telefono);
+        }
+
+        // POST: /Telefono/Delete/{num}
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(string num)
+        {
+            await _telefonoRepository.DeleteAsync(num); // Usa el método asíncrono para eliminar el teléfono
             return RedirectToAction(nameof(Index));
         }
     }

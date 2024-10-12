@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using personapi_dotnet.Models;
 using personapi_dotnet.Models.Entities;
 using personapi_dotnet.Models.Interfaces;
+using System.Threading.Tasks;
 
 namespace personapi_dotnet.Controllers
 {
@@ -14,48 +14,70 @@ namespace personapi_dotnet.Controllers
             _profesionRepository = profesionRepository;
         }
 
-        public IActionResult Index()
+        // GET: /Profesion/Index
+        public async Task<IActionResult> Index()
         {
-            var profesiones = _profesionRepository.GetAll();
+            var profesiones = await _profesionRepository.GetAllAsync(); // Usa el método asíncrono
             return View(profesiones);
         }
 
+        // GET: /Profesion/Create
         public IActionResult Create()
         {
             return View();
         }
 
+        // POST: /Profesion/Create
         [HttpPost]
-        public IActionResult Create(Profesion profesion)
+        public async Task<IActionResult> Create(Profesion profesion)
         {
             if (ModelState.IsValid)
             {
-                _profesionRepository.Add(profesion);
+                await _profesionRepository.AddAsync(profesion); // Usa el método asíncrono para añadir la profesión
                 return RedirectToAction(nameof(Index));
             }
             return View(profesion);
         }
 
-        public IActionResult Edit(int id)
+        // GET: /Profesion/Edit/{id}
+        public async Task<IActionResult> Edit(int id)
         {
-            var profesion = _profesionRepository.GetById(id);
+            var profesion = await _profesionRepository.GetByIdAsync(id); // Usa el método asíncrono para obtener la profesión por ID
+            if (profesion == null)
+            {
+                return NotFound();
+            }
             return View(profesion);
         }
 
+        // POST: /Profesion/Edit
         [HttpPost]
-        public IActionResult Edit(Profesion profesion)
+        public async Task<IActionResult> Edit(Profesion profesion)
         {
             if (ModelState.IsValid)
             {
-                _profesionRepository.Update(profesion);
+                await _profesionRepository.UpdateAsync(profesion); // Usa el método asíncrono para actualizar la profesión
                 return RedirectToAction(nameof(Index));
             }
             return View(profesion);
         }
 
-        public IActionResult Delete(int id)
+        // GET: /Profesion/Delete/{id}
+        public async Task<IActionResult> Delete(int id)
         {
-            _profesionRepository.Delete(id);
+            var profesion = await _profesionRepository.GetByIdAsync(id); // Usa el método asíncrono para obtener la profesión por ID
+            if (profesion == null)
+            {
+                return NotFound();
+            }
+            return View(profesion);
+        }
+
+        // POST: /Profesion/Delete/{id}
+        [HttpPost, ActionName("Delete")]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            await _profesionRepository.DeleteAsync(id); // Usa el método asíncrono para eliminar la profesión
             return RedirectToAction(nameof(Index));
         }
     }
