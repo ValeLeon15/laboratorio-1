@@ -1,5 +1,7 @@
 using personapi_dotnet.Models.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,9 +13,16 @@ builder.Services.AddDbContext<PersonaDbContext>(Options =>
     Options.UseSqlServer(builder.Configuration.GetConnectionString("PersonaDbContext"));
 });
 
+
 // Agregar SwaggerGen
 builder.Services.AddEndpointsApiExplorer(); //permite a swagger explorar los endpoints de la aplicación
-builder.Services.AddSwaggerGen();  //Registra el generador de Swagger
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "Persona API", Version = "v1" });
+});  //Registra el generador de Swagger
+
+builder.Services.AddDbContext<PersonaDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 
 var app = builder.Build();
