@@ -1,10 +1,16 @@
 using personapi_dotnet.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-
+using personapi_dotnet.Models.Interfaces;
+using personapi_dotnet.Repositories;
 
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddScoped<IPersonaRepository, PersonaRepository>();
+builder.Services.AddScoped<IProfesionRepository, ProfesionRepository>();
+builder.Services.AddScoped<IEstudioRepository, EstudioRepository>();
+builder.Services.AddScoped<ITelefonoRepository, TelefonoRepository>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

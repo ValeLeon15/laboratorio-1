@@ -1,0 +1,59 @@
+﻿@model IEnumerable<personapi_dotnet.Models.Entities.Estudio>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Estudios</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Registrar estudios</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Fecha)
+            </th>
+            <th>
+                Universidad
+            </th>
+            <th>
+                Titular
+            </th>
+            <th>
+                Profesion
+            </th>
+            <th>
+                Area
+            </th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Univer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CcPerNavigation.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdProfNavigation.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdProfNavigation.Des)
+            </td>
+            <td>
+                    @Html.ActionLink("Editar", "Edit", "Estudios", new { IdProf = item.IdProf, CcPer = item.CcPer }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Details", "Details", new { IdProf = item.IdProf, CcPer = item.CcPer }, new { @class = "btn btn-info" })
+                    @Html.ActionLink("Eliminar", "Delete", "Estudios",new { idProf = item.IdProf, CcPer = item.CcPer }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

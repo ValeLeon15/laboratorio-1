@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Santiago Vides\\Documents\\universidad\\10mo-semestre\\Arquitectura\\laboratorio1\\personapi-dotnet\\personapi-dotnet\\personapi-dotnet.csproj": {}
+    "C:\\Users\\VALENTINA\\Documents\\ArquitecturaSW\\lab\\personapi-dotnet\\personapi-dotnet.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Santiago Vides\\Documents\\universidad\\10mo-semestre\\Arquitectura\\laboratorio1\\personapi-dotnet\\personapi-dotnet\\personapi-dotnet.csproj": {
+    "C:\\Users\\VALENTINA\\Documents\\ArquitecturaSW\\lab\\personapi-dotnet\\personapi-dotnet.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Santiago Vides\\Documents\\universidad\\10mo-semestre\\Arquitectura\\laboratorio1\\personapi-dotnet\\personapi-dotnet\\personapi-dotnet.csproj",
+        "projectUniqueName": "C:\\Users\\VALENTINA\\Documents\\ArquitecturaSW\\lab\\personapi-dotnet\\personapi-dotnet.csproj",
         "projectName": "personapi-dotnet",
-        "projectPath": "C:\\Users\\Santiago Vides\\Documents\\universidad\\10mo-semestre\\Arquitectura\\laboratorio1\\personapi-dotnet\\personapi-dotnet\\personapi-dotnet.csproj",
-        "packagesPath": "C:\\Users\\Santiago Vides\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Santiago Vides\\Documents\\universidad\\10mo-semestre\\Arquitectura\\laboratorio1\\personapi-dotnet\\personapi-dotnet\\obj\\",
+        "projectPath": "C:\\Users\\VALENTINA\\Documents\\ArquitecturaSW\\lab\\personapi-dotnet\\personapi-dotnet.csproj",
+        "packagesPath": "C:\\Users\\VALENTINA\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\VALENTINA\\Documents\\ArquitecturaSW\\lab\\personapi-dotnet\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Santiago Vides\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\VALENTINA\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

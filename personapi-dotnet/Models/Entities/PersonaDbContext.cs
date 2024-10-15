@@ -33,7 +33,7 @@ public partial class PersonaDbContext : DbContext
     {
         modelBuilder.Entity<Estudio>(entity =>
         {
-            entity.HasKey(e => new { e.IdProf, e.CcPer }).HasName("PK__estudios__FB3F71A6C339AF0E");
+            entity.HasKey(e => new { e.IdProf, e.CcPer }).HasName("PK_estudios_FB3F71A6C339AF0E");
 
             entity.ToTable("estudios");
 
@@ -48,17 +48,17 @@ public partial class PersonaDbContext : DbContext
             entity.HasOne(d => d.CcPerNavigation).WithMany(p => p.Estudios)
                 .HasForeignKey(d => d.CcPer)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__estudios__cc_per__3B75D760");
+                .HasConstraintName("FK_estudioscc_per_3B75D760");
 
             entity.HasOne(d => d.IdProfNavigation).WithMany(p => p.Estudios)
                 .HasForeignKey(d => d.IdProf)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__estudios__id_pro__3C69FB99");
+                .HasConstraintName("FK_estudiosid_pro_3C69FB99");
         });
 
         modelBuilder.Entity<Persona>(entity =>
         {
-            entity.HasKey(e => e.Cc).HasName("PK__persona__3213666D9E4671A7");
+            entity.HasKey(e => e.Cc).HasName("PK_persona_3213666D9E4671A7");
 
             entity.ToTable("persona");
 
@@ -83,7 +83,7 @@ public partial class PersonaDbContext : DbContext
 
         modelBuilder.Entity<Profesion>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__profesio__3213E83FEDC78CA8");
+            entity.HasKey(e => e.Id).HasName("PK_profesio_3213E83FEDC78CA8");
 
             entity.ToTable("profesion");
 
@@ -101,7 +101,7 @@ public partial class PersonaDbContext : DbContext
 
         modelBuilder.Entity<Telefono>(entity =>
         {
-            entity.HasKey(e => e.Num).HasName("PK__telefono__DF908D654CC8FCEC");
+            entity.HasKey(e => e.Num).HasName("PK_telefono_DF908D654CC8FCEC");
 
             entity.ToTable("telefono");
 
@@ -118,7 +118,7 @@ public partial class PersonaDbContext : DbContext
             entity.HasOne(d => d.DuenioNavigation).WithMany(p => p.Telefonos)
                 .HasForeignKey(d => d.Duenio)
                 .OnDelete(DeleteBehavior.ClientSetNull)
-                .HasConstraintName("FK__telefono__duenio__3F466844");
+                .HasConstraintName("FK_telefonoduenio_3F466844");
         });
 
         OnModelCreatingPartial(modelBuilder);
