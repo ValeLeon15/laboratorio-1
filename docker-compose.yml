@@ -1,6 +1,10 @@
+version: '3.8'
+
 services:
   sqlserver:
-    image: mcr.microsoft.com/mssql/server:2022-latest
+    build:
+      context: .
+      dockerfile: ./db-config/Dockerfile
     container_name: sqlserver_container
     environment:
       - ACCEPT_EULA=Y
@@ -12,10 +16,20 @@ services:
     networks:
       - personanetwork
 
+  personapi-dotnet:
+    build: 
+      context: ./personapi-dotnet
+      dockerfile: Dockerfile
+    ports:
+      - "32773:80"
+    depends_on:
+      - sqlserver
+    networks:
+      - personanetwork
+
 volumes:
   sqlserverdata:
 
 networks:
   personanetwork:
     driver: bridge
-

@@ -2,7 +2,8 @@ FROM mcr.microsoft.com/mssql/server:2022-latest
 
 WORKDIR /usr/src/app
 
-COPY . /usr/src/app
+COPY db-config/entrypoint.sh /usr/src/app/entrypoint.sh
+COPY db-config/run-initialization.sh /usr/src/app/
 
 USER root
 RUN chmod +x entrypoint.sh
@@ -15,4 +16,4 @@ ENV MSSQL_PID=Express
 
 EXPOSE 1433
 
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["/bin/bash", "/usr/src/app/entrypoint.sh"]
