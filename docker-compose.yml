@@ -21,7 +21,7 @@ services:
       context: ./personapi-dotnet
       dockerfile: Dockerfile
     ports:
-      - "32773:80"
+      - "32773:8080"
     depends_on:
       - sqlserver
     networks:

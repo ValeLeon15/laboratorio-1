@@ -1,18 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 
 namespace personapi_dotnet.Models.Entities;
 
 public partial class PersonaDbContext : DbContext
 {
-    public PersonaDbContext()
+    private readonly IConfiguration _configuration;
+    public PersonaDbContext(IConfiguration configuration)
     {
+        _configuration = configuration;
     }
 
-    public PersonaDbContext(DbContextOptions<PersonaDbContext> options)
+    public PersonaDbContext(DbContextOptions<PersonaDbContext> options, IConfiguration configuration)
         : base(options)
     {
+        _configuration = configuration;
     }
 
     public virtual DbSet<Estudio> Estudios { get; set; }
@@ -23,7 +27,15 @@ public partial class PersonaDbContext : DbContext
 
     public virtual DbSet<Telefono> Telefonos { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlServer("name=ConnectionStrings:DefaultConnection");
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    {
+        if (!optionsBuilder.IsConfigured)
+        {
+            // Obtiene la cadena de conexión desde appsettings.json o las variables de entorno
+            var connectionString = _configuration.GetConnectionString("DefaultConnection");
+            optionsBuilder.UseSqlServer(connectionString);
+        }
+    }
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Estudio>(entity =>
