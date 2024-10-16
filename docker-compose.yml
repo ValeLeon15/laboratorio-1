@@ -24,8 +24,14 @@ services:
       - "32773:8080"
     depends_on:
       - sqlserver
+    environment:
+      - DB_SERVER=ms_sql
+      - DB_NAME=persona_db
+      - DB_PORT=1433
+      - SA_PASSWORD=TuPassword123!
     networks:
       - personanetwork
+    
 
 volumes:
   sqlserverdata:
