@@ -4,7 +4,7 @@ using personapi_dotnet.Models.Interfaces;
 
 namespace personapi_dotnet.Repositories
 {
-    public class PersonaRepository : IPersonaRepository
+    public class PersonaRepository : Models.Interfaces.IPersonaRepository
     {
         private readonly PersonaDbContext _context;
 
