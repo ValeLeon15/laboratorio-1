@@ -1,19 +1,21 @@
 using personapi_dotnet.Models.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
-using personapi_dotnet.Models.Interfaces;
-using personapi_dotnet.Repositories;
+using personapi_dotnet.Controllers.Api;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Repositorios
-builder.Services.AddScoped<IPersonaRepository, PersonaRepository>();
-builder.Services.AddScoped<IProfesionRepository, ProfesionRepository>();
-builder.Services.AddScoped<IEstudioRepository, EstudioRepository>();
-builder.Services.AddScoped<ITelefonoRepository, TelefonoRepository>();
+
 
 // Configuración de servicios
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<PersonasApiController>();
+builder.Services.AddScoped<ProfesionesApiController>();
+builder.Services.AddScoped<EstudiosApiController>();
+builder.Services.AddScoped<TelefonosApiController>();
 
 
 // Configuración de Swagger

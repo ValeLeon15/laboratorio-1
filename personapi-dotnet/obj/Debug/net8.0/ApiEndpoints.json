@@ -1,8 +1,8 @@
 [
   {
-    "ContainingType": "personapi_dotnet.Controllers.EstudioApiController",
+    "ContainingType": "personapi_dotnet.Controllers.Api.EstudiosApiController",
     "Method": "GetEstudios",
-    "RelativePath": "api/EstudioApi",
+    "RelativePath": "api/EstudiosApi",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -20,9 +20,9 @@
     ]
   },
   {
-    "ContainingType": "personapi_dotnet.Controllers.EstudioApiController",
+    "ContainingType": "personapi_dotnet.Controllers.Api.EstudiosApiController",
     "Method": "PostEstudio",
-    "RelativePath": "api/EstudioApi",
+    "RelativePath": "api/EstudiosApi",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -46,9 +46,9 @@
     ]
   },
   {
-    "ContainingType": "personapi_dotnet.Controllers.EstudioApiController",
+    "ContainingType": "personapi_dotnet.Controllers.Api.EstudiosApiController",
     "Method": "GetEstudio",
-    "RelativePath": "api/EstudioApi/{id}",
+    "RelativePath": "api/EstudiosApi/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -72,9 +72,9 @@
     ]
   },
   {
-    "ContainingType": "personapi_dotnet.Controllers.EstudioApiController",
+    "ContainingType": "personapi_dotnet.Controllers.Api.EstudiosApiController",
     "Method": "PutEstudio",
-    "RelativePath": "api/EstudioApi/{id}",
+    "RelativePath": "api/EstudiosApi/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -93,9 +93,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "personapi_dotnet.Controllers.EstudioApiController",
+    "ContainingType": "personapi_dotnet.Controllers.Api.EstudiosApiController",
     "Method": "DeleteEstudio",
-    "RelativePath": "api/EstudioApi/{id}",
+    "RelativePath": "api/EstudiosApi/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -109,9 +109,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "personapi_dotnet.Controllers.PersonaApiController",
+    "ContainingType": "personapi_dotnet.Controllers.Api.PersonasApiController",
     "Method": "GetPersonas",
-    "RelativePath": "api/PersonaApi",
+    "RelativePath": "api/PersonasApi",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -129,9 +129,9 @@
     ]
   },
   {
-    "ContainingType": "personapi_dotnet.Controllers.PersonaApiController",
+    "ContainingType": "personapi_dotnet.Controllers.Api.PersonasApiController",
     "Method": "PostPersona",
-    "RelativePath": "api/PersonaApi",
+    "RelativePath": "api/PersonasApi",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -155,9 +155,9 @@
     ]
   },
   {
-    "ContainingType": "personapi_dotnet.Controllers.PersonaApiController",
+    "ContainingType": "personapi_dotnet.Controllers.Api.PersonasApiController",
     "Method": "GetPersona",
-    "RelativePath": "api/PersonaApi/{id}",
+    "RelativePath": "api/PersonasApi/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -181,9 +181,9 @@
     ]
   },
   {
-    "ContainingType": "personapi_dotnet.Controllers.PersonaApiController",
+    "ContainingType": "personapi_dotnet.Controllers.Api.PersonasApiController",
     "Method": "PutPersona",
-    "RelativePath": "api/PersonaApi/{id}",
+    "RelativePath": "api/PersonasApi/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -202,9 +202,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "personapi_dotnet.Controllers.PersonaApiController",
+    "ContainingType": "personapi_dotnet.Controllers.Api.PersonasApiController",
     "Method": "DeletePersona",
-    "RelativePath": "api/PersonaApi/{id}",
+    "RelativePath": "api/PersonasApi/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -218,9 +218,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "personapi_dotnet.Controllers.ProfesionApiController",
-    "Method": "GetProfesiones",
-    "RelativePath": "api/ProfesionApi",
+    "ContainingType": "personapi_dotnet.Controllers.Api.ProfesionesApiController",
+    "Method": "GetProfesions",
+    "RelativePath": "api/ProfesionesApi",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -238,9 +238,9 @@
     ]
   },
   {
-    "ContainingType": "personapi_dotnet.Controllers.ProfesionApiController",
+    "ContainingType": "personapi_dotnet.Controllers.Api.ProfesionesApiController",
     "Method": "PostProfesion",
-    "RelativePath": "api/ProfesionApi",
+    "RelativePath": "api/ProfesionesApi",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -264,9 +264,9 @@
     ]
   },
   {
-    "ContainingType": "personapi_dotnet.Controllers.ProfesionApiController",
+    "ContainingType": "personapi_dotnet.Controllers.Api.ProfesionesApiController",
     "Method": "GetProfesion",
-    "RelativePath": "api/ProfesionApi/{id}",
+    "RelativePath": "api/ProfesionesApi/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -290,9 +290,9 @@
     ]
   },
   {
-    "ContainingType": "personapi_dotnet.Controllers.ProfesionApiController",
+    "ContainingType": "personapi_dotnet.Controllers.Api.ProfesionesApiController",
     "Method": "PutProfesion",
-    "RelativePath": "api/ProfesionApi/{id}",
+    "RelativePath": "api/ProfesionesApi/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -311,9 +311,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "personapi_dotnet.Controllers.ProfesionApiController",
+    "ContainingType": "personapi_dotnet.Controllers.Api.ProfesionesApiController",
     "Method": "DeleteProfesion",
-    "RelativePath": "api/ProfesionApi/{id}",
+    "RelativePath": "api/ProfesionesApi/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -327,9 +327,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "personapi_dotnet.Controllers.TelefonoApiController",
+    "ContainingType": "personapi_dotnet.Controllers.Api.TelefonosApiController",
     "Method": "GetTelefonos",
-    "RelativePath": "api/TelefonoApi",
+    "RelativePath": "api/TelefonosApi",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -347,9 +347,9 @@
     ]
   },
   {
-    "ContainingType": "personapi_dotnet.Controllers.TelefonoApiController",
+    "ContainingType": "personapi_dotnet.Controllers.Api.TelefonosApiController",
     "Method": "PostTelefono",
-    "RelativePath": "api/TelefonoApi",
+    "RelativePath": "api/TelefonosApi",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -373,15 +373,15 @@
     ]
   },
   {
-    "ContainingType": "personapi_dotnet.Controllers.TelefonoApiController",
+    "ContainingType": "personapi_dotnet.Controllers.Api.TelefonosApiController",
     "Method": "GetTelefono",
-    "RelativePath": "api/TelefonoApi/{num}",
+    "RelativePath": "api/TelefonosApi/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "num",
+        "Name": "id",
         "Type": "System.String",
         "IsRequired": true
       }
@@ -399,15 +399,15 @@
     ]
   },
   {
-    "ContainingType": "personapi_dotnet.Controllers.TelefonoApiController",
+    "ContainingType": "personapi_dotnet.Controllers.Api.TelefonosApiController",
     "Method": "PutTelefono",
-    "RelativePath": "api/TelefonoApi/{num}",
+    "RelativePath": "api/TelefonosApi/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "num",
+        "Name": "id",
         "Type": "System.String",
         "IsRequired": true
       },
@@ -420,15 +420,15 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "personapi_dotnet.Controllers.TelefonoApiController",
+    "ContainingType": "personapi_dotnet.Controllers.Api.TelefonosApiController",
     "Method": "DeleteTelefono",
-    "RelativePath": "api/TelefonoApi/{num}",
+    "RelativePath": "api/TelefonosApi/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "num",
+        "Name": "id",
         "Type": "System.String",
         "IsRequired": true
       }
