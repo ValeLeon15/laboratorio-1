@@ -1,14 +1,9 @@
-version: '3.8'
-
 services:
   sqlserver:
     build:
       context: .
       dockerfile: ./db-config/Dockerfile
     container_name: sqlserver_container
-    environment:
-      - ACCEPT_EULA=Y
-      - MSSQL_SA_PASSWORD=Password123!
     ports:
       - "1433:1433"
     volumes:
@@ -28,7 +23,7 @@ services:
       - DB_SERVER=ms_sql
       - DB_NAME=persona_db
       - DB_PORT=1433
-      - SA_PASSWORD=TuPassword123!
+      - SA_PASSWORD=Password123!
     networks:
       - personanetwork
     
