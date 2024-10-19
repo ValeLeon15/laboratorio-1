@@ -7,5 +7,5 @@ Proyecto en .NET para el Laboratorio 1 de Arquitectura de Software
 - Lara Salcedo Franco
 
 ## intrucciones
-Ejecutar docker-compose up --build --remove-orphans.
-Acceder a la aplicacion en el navegador en http://localhost:32769.
+1. Ejecutar docker-compose up --build --remove-orphans.
+2. Acceder a la aplicacion en el navegador en http://localhost:32769.
